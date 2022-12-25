@@ -19,6 +19,11 @@ export default function TextForm() {
     const newText = text.split(/[ ]+/);
     setText(newText.join(" "));
   }
+  const textArea = {
+    width: "70vw",
+    height: "30vh",
+  };
+
 
   return (
     <div className="container">
@@ -27,29 +32,42 @@ export default function TextForm() {
         className="my-2"
         name=""
         value={text}
-        rows="8"
-        cols="100"
         onChange={handleChange}
+        style={textArea}
       />
       <br />
 
-      <button className="btn btn-primary me-2" onClick={convertToUpr}>
-        Convert to Uppercase
-      </button>
-      <button className="btn btn-primary me-2" onClick={convertToLow}>
-        Convert to Lowercase
-      </button>
-      <button className="btn btn-primary me-2" onClick={removeExtraSpaces}>
-        Remove Extraspaces
-      </button>
-      <button
-        className="btn btn-primary me-2"
-        onClick={() => {
-          setText("");
-        }}
-      >
-        Clear Textarea
-      </button>
+      <div className="rows">
+
+        <div className="col-3 col-sm-12 my-2">
+          <button className="btn btn-primary me-2" onClick={convertToUpr}>
+            Convert to Uppercase
+          </button>
+        </div>
+
+        <div className="col-3 col-sm-12 my-2">
+          <button className="btn btn-primary me-2" onClick={convertToLow}>
+            Convert to Lowercase
+          </button>
+        </div>
+
+        <div className="col-3 col-sm-12 my-2">
+          <button className="btn btn-primary me-2" onClick={removeExtraSpaces}>
+            Remove Extraspaces
+          </button>
+        </div>
+
+        <div className="col-3 col-sm-12 my-2">
+          <button
+            className="btn btn-primary me-2"
+            onClick={() => {
+              setText("");
+            }}
+          >
+            Clear Textarea
+          </button>
+        </div>
+      </div>
 
       <div className="container my-4">
         <b>Text Summary</b>
